@@ -1,5 +1,7 @@
 package com.example.bookman.cli;
 
+import com.example.bookman.utils.VersionProvider;
+
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 //import picocli.CommandLine.Option;
@@ -7,7 +9,7 @@ import picocli.CommandLine.Command;
 @Command(name = "bookman", 
 	description = "Simple CLI app to track your topics", 
 	subcommands = {TopicCommand.class, CommandLine.HelpCommand.class},
-	version = "0.0.1",
+	versionProvider = VersionProvider.class,
 	mixinStandardHelpOptions = true)
 public class BookmanCommand {
 	
