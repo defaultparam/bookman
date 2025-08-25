@@ -24,7 +24,7 @@ The BookMan is for dividing `topics` under different sections, so that one can e
 
 # Examples usages
 
-`bookman learning add "Git Fundamentals"`
+`bookman research add "Git Fundamentals"`
 `bookman lifestyle add --title "Gym" --notes "Monday to Friday; Eve (6pm - 8pm IST)"`
 
 `bookman topic view --title "Git Fundamentals"
