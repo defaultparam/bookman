@@ -25,4 +25,20 @@ public class Topic {
 		this.notes = notes;
 		this.category = category;
 	}
+	
+	public String getId() {
+		return id.toString();
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public String getNotes() {
+		return notes;
+	}
+	
+	public TopicCategory getTopicCategory() {
+		return category;
+	}
 }

@@ -5,7 +5,7 @@ import picocli.CommandLine.Option;
 
 @Command(
 	name = "topic",
-	description = "View or Update topics here",
+	description = "View or Update a particular topic here",
 	mixinStandardHelpOptions = true
 	)
 public class TopicCommand implements Runnable {

@@ -8,7 +8,7 @@ import picocli.CommandLine.Command;
 
 @Command(name = "bookman", 
 	description = "Simple CLI app to track your topics", 
-	subcommands = {TopicCommand.class, CommandLine.HelpCommand.class},
+	subcommands = {TopicCommand.class, ResearchCommand.class, LifestyleCommand.class, CommandLine.HelpCommand.class},
 	versionProvider = VersionProvider.class,
 	mixinStandardHelpOptions = true)
 public class BookmanCommand {
