@@ -6,8 +6,12 @@ public class Topic {
 	UUID id;
 	String title;
 	String notes;
-	TopicCategory category;
+	TopicCategory topicCategory;
 
+	/*
+	 * ONLY TO BE USED FOR IMPORTING JSON FILES FOR JACKSON
+	 */
+	public Topic() {}
 	public Topic(String title) {
 		this(title, "", TopicCategory.UNDEFINED);
 	}
@@ -16,14 +20,14 @@ public class Topic {
 		this(title, notes, TopicCategory.UNDEFINED);
 	}
 
-	public Topic(String title, TopicCategory category) {
-		this(title, "", category);
+	public Topic(String title, TopicCategory topicCategory) {
+		this(title, "", topicCategory);
 	}
-	public Topic(String title, String notes, TopicCategory category) {
+	public Topic(String title, String notes, TopicCategory topicCategory) {
 		this.id = UUID.randomUUID();
 		this.title = title;
 		this.notes = notes;
-		this.category = category;
+		this.topicCategory = topicCategory;
 	}
 	
 	public String getId() {
@@ -39,6 +43,6 @@ public class Topic {
 	}
 	
 	public TopicCategory getTopicCategory() {
-		return category;
+		return topicCategory;
 	}
 }

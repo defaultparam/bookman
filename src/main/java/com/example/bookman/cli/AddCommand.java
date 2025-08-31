@@ -11,8 +11,9 @@ import picocli.CommandLine.Spec;
 
 @Command(name = "add", description = "Add a topic to the category", mixinStandardHelpOptions = true)
 public class AddCommand implements Runnable {
-	
-	
+
+//	private final CategoryService categorySrv;	
+
 //	public AddCommand(CategoryService categorySrv) {
 //		this.categorySrv = categorySrv;
 //	}
@@ -22,7 +23,8 @@ public class AddCommand implements Runnable {
 	@Option(arity = "1", names = { "-t", "--title" }, description = "Specify the title to add")
 	String optionTitle;
 
-	@Option(arity = "1..*", names = { "-n", "--notes", "--description", }, description = "Specify subtitle to the topic (if any)")
+	@Option(arity = "1..*", names = { "-n", "--notes",
+			"--description", }, description = "Specify subtitle to the topic (if any)")
 	String notes;
 
 	@Spec
@@ -31,21 +33,19 @@ public class AddCommand implements Runnable {
 	@Override
 	public void run() {
 		String title = paramTitle.isBlank() ? optionTitle : paramTitle;
-		
-		if (title.isBlank()) {
+
+		if (title == null || title.isBlank()) {
 			System.out.println("NO TITLE PROVIDED");
 			return;
 		}
-		
-		String parentCommand = commandSpec.parent().name();
+
+		String parentCommand = commandSpec.parent().name().toUpperCase();
 		TopicCategory category = TopicCategory.valueOf(parentCommand);
-		System.out.println(category);
-//		boolean isSuccess = categorySrv.addTopicToCategory(title, category, notes);
-//		if (isSuccess) {
-//			System.out.println("Topic added successfully!");
-//		}
-//		else {
-//			System.out.println("Add error handling");
-//		}
+		boolean isSuccess = CategoryService.addTopicToCategory(title, category, notes);
+		if (isSuccess) {
+			System.out.println("Topic added successfully!");
+		} else {
+			System.out.println("Add error handling");
+		}
 	}
 }
